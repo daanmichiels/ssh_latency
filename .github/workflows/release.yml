@@ -15,7 +15,7 @@ jobs:
     - name: Build
       run: cargo build --verbose --release
     - name: Release
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v0.1.15
       with:
           files: target/release/ssh_latency
   
@@ -26,6 +26,6 @@ jobs:
     - name: Build
       run: cargo build --verbose --release
     - name: Release
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v0.1.15
       with:
           files: target/release/ssh_latency.exe
