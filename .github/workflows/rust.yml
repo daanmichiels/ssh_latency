@@ -17,4 +17,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build
-      run: cargo build --verbose
+      run: cargo build --verbose --release
+    - uses: actions/upload-artifact@v3
+      with:
+        name: ssh_latency binary
+        path: target/release/ssh_latency
