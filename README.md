@@ -1,5 +1,5 @@
 # ssh_latency
-Measure SSH latency. Run `ssh_latency --help` for usage and options.
+Measure SSH latency. Prints roundtrip times in microseconds. Run `ssh_latency --help` for usage and options.
 
 ## Typical usage
 On Windows:
