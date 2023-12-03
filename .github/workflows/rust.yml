@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Build (linux)
+    - name: Build
       run: cargo build --verbose --release
     - uses: actions/upload-artifact@v3
       with:
@@ -24,7 +24,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Build (linux)
+    - name: Build
       run: cargo build --verbose --release
     - uses: actions/upload-artifact@v3
       with:
