@@ -19,7 +19,7 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: ssh_latency (linux)
-        path: target/release/ssh_latency
+        path: target/debug/ssh_latency
   build_windows:
     runs-on: windows-latest
     steps:
@@ -29,4 +29,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: ssh_latency (windows)
-        path: target/release/ssh_latency.exe
+        path: target/debug/ssh_latency.exe
