@@ -1,0 +1,32 @@
+name: Rust
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build_linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      run: cargo build --verbose --release
+    - uses: actions/upload-artifact@v3
+      with:
+        name: ssh_latency (linux)
+        path: target/release/ssh_latency
+  build_windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      run: cargo build --verbose --release
+    - uses: actions/upload-artifact@v3
+      with:
+        name: ssh_latency (windows)
+        path: target/release/ssh_latency.exe
