@@ -1,5 +1,5 @@
 use clap::{arg, command, value_parser, ArgAction};
-use rand::distributions::{Alphanumeric, DistString};
+use rand::distr::{Alphanumeric, SampleString};
 use std::env;
 use std::ffi::OsStr;
 use std::io::{BufRead, BufReader, Write};
@@ -51,7 +51,7 @@ fn main() -> ExitCode {
     let mut g = BufReader::new(child.stdout.as_mut().unwrap());
 
     let mut lines_skipped = 0;
-    let first_message = Alphanumeric.sample_string(&mut rand::thread_rng(), 32);
+    let first_message = Alphanumeric.sample_string(&mut rand::rng(), 32);
     k.write_all(format!("echo {}\n", first_message).as_bytes())
         .unwrap();
     loop {
@@ -69,7 +69,7 @@ fn main() -> ExitCode {
     }
 
     for _ in 0..iterations {
-        let message = Alphanumeric.sample_string(&mut rand::thread_rng(), 1);
+        let message = Alphanumeric.sample_string(&mut rand::rng(), 1);
         let mut response: String = String::new();
 
         k.write_all(format!("echo {}\n", message).as_bytes())
