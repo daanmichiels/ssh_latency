@@ -5,6 +5,9 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
+  schedule:
+    - cron: '23 7 14 2,5,8,11 *'
 
 env:
   CARGO_TERM_COLOR: always
